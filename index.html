@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/paper/bootstrap.min.css" rel="stylesheet" integrity="sha256-ZSKfhECi0yCEmGVAuQLWTHtJEn2vBNPexEWsJCIC/Nc= sha512-b+mSnD4QXw1uYwkgJ3d0XxoMXo+ZKHJNTNNFIddJ0IazcwKvKYtIlWADZ1JEREJzxUG428sfCw7qDuswAFcrOQ==" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
+</head>
+<body>
+	<h1 style="text-align:center">HEXR TRANZLATOR</h1>
+	<p style="text-align:center">Chances are you do not know what this means.</p>
+	<div style="padding-top:5%; text-align:center">
+		<input type="text" name="input" id="input">
+		<button onclick="convert()" class="btn btn-primary">Translate</button>
+		<p id="outpot">Please type something in the box above</p>
+	</div>
+	<script>
+	function capString(string){
+		return string.charAt(0).toUpperCase() + string.slice(1);
+	}
+
+	var replacements = {
+		"plox": "please",
+		"lelz": "ha",
+		"hai thar": "hi there",
+		"mee-wow": "Wow, that is an interesting cat fact",
+		"hexy_hello": "Hello",
+		"hexr": "hacker", // this has to be above hex
+		"hex": "hack",
+		"outpot": "output",
+		"broswer": "browser",
+		"sput_oot": "output",
+		"nao": "now",
+		"wheye": "why",
+		"nu": "no",
+		"cod": "code",
+		"moar": "more"
+	};
+
+	function convert() {
+		var str = document.getElementById('input').value.toLowerCase();
+		for (var toReplace in replacements) {
+			str = str.replace(toReplace, replacements[toReplace]);
+		}
+		str = capString(str);
+		document.getElementById("outpot").innerHTML = str;
+	}
+	</script>
+</body>
+</html>
